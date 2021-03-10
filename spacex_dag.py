@@ -27,7 +27,7 @@ for r in rocket_types:
         rpar = "-r %s" % r
     t1.append(BashOperator(
         task_id="get_sx_data_%s" % r,
-        bash_command="python3 /root/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} %s -o /var/data" % rpar,
+        bash_command="python3 /opt/airflow/dags/spacex/load_launches.py -y {{ execution_date.year }} %s -o /var/data" % rpar,
         dag=dag
     ))
     t2.append(BashOperator(
